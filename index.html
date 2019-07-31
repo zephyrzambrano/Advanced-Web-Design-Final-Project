@@ -16,15 +16,51 @@
     
         <br>
         
-        <input type ="text" id ="input"/> <!-- text input -->
-        <input type ="button" value="Load it!" id ="loadButton"/> <!-- button -->
+         <div id="button">
+        <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex number"/> <!-- text input -->
+        <input type ="button" value="Search!" id ="loadButton"/> <!-- button -->
+        
+        </div>        
         
         <div id ="info"></div>
         <div id="pokeName"></div>
         <div id="pokeID"></div>
         
         
-                
+    <style>
+        #button{
+                width: 80%;
+                display: flex;
+/*                max-width: 800px;*/
+                margin: 20px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+        }
+        
+        #input{
+            width: 70%;
+            height: auto;
+            padding: 5px;
+            font-size: 20px;
+
+        }
+
+        
+     #loadButton {
+        background-color: #2b75bb;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 20px;
+        }
+
+        
+        
+        
+</style>
+        
     <script>
         
         //Basic variable

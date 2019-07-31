@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pokemon</title>
+    </head>
+    <body>
+    
+    <div id ="info"></div>
+    
+    <input type ="text" id ="input"/> <!-- text input -->
+    <input type ="button" value="Load it!" id ="loadButton"/> <!-- button -->
+        
+        
+    <style>
+        body {
+  margin: 0;
+  padding:10px 50px;
+/*height: 100vh;*/
+            height: 80vh;
+
+  background: #ffca00 url("http://brezomadrid.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;
+  background-size: cover;
+  font-family: 'Consolas', Arial;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@keyframes light {
+  0% {
+    background-color: #39beff4a;
+    box-shadow: none;
+  }
+  50% {
+    background-color: #39beff4a;
+    box-shadow: 0 0 12px 8px white;
+  }
+  100% {
+    background-color: #39beff4a;
+    box-shadow: none;
+  }
+}
+</style>
+        
+                
+    <script>
+        
+        //Basic variable
+        var apiBase = "https://pokeapi.co/api/v2/";	//starts with this and catenates it
+        var data; //inspect the data and stores data
+        var info = document.getElementById("info"); 
+        var button = document.getElementById("loadButton");
+        var input = document.getElementById("input");
+        
+        //Set up xhr
+        var xhr = new XMLHttpRequest(); //creates a new objects and sticks it into this
+        
+        //Set the button listener
+        button.addEventListener("click", buttonPressed);         
+        
+        function buttonPressed(){
+        //Tell it what to do when it's loaded
+        xhr.addEventListener("load",loadPokemon);
+        //Tell it the file to load 
+        xhr.open("GET", apiBase + "pokemon-species/" + input.value); //Grabs the pokemon and puts the input into it
+        //GO!
+        xhr.send();
+        }
+            
+        //Parse and display data
+        function loadPokemon(){
+        
+            //Stick the info into data
+            // data = xhr.responseText;
+            //info.innerHTML = data;
+            data = JSON.parse(xhr.responseText);
+            
+            //Stick the Pokemon name and ID into info
+            info.innerHTML = data.name + " " + data.id; //displays the data
+            
+            console.log("Loaded!");
+        }
+        
+        </script>
+    
+    </body>
+    
+</html>

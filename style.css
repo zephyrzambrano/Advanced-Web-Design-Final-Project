@@ -1,4 +1,59 @@
-#mainMenu {
+#mainMenu{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+.nav{
+  display: block;
+  width: 100%;
+  padding:15px;
+  text-align: center;
+}
+
+.nav > a {
+  display: inline-block;
+  width: 30%;
+  margin-right:-4px;
+  padding: 2px 0;
+  border: 1px #000;
+  border-width: 0 0 0 1px;
+  
+
+  vertical-align: top;
+  
+  color: white;
+  background-color: 0;
+  font-family: sans-serif;
+  text-align: center;
+  
+  
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+
+/* add code for screen less than 341px */
+@media (max-width: 341px) {
+  .nav > a {
+    /* TODO each link 100% width   */
+    width: 100%;
+    
+    /* TODO only has bottom border  */
+    border-width: 0 0 1px 0; 
+   
+  } 
+  .nav > a:last-child{
+    border-width: 0;
+  }
+} 
+    
+
+/*Code above is all for navigation!*/
+
+
+
+/*#mainMenu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -11,7 +66,11 @@
     display: inline;
     width: 60px;
 }
+*/
         
+
+
+
 body {
   margin: 0;
   padding:10px 50px;

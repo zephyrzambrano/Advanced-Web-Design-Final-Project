@@ -8,14 +8,22 @@
     </head>
     <body>
         
-        <ul id="mainMenu">
-            <li id="menuItem"><a href="index.html">Home</a></li>
-            <li id="menuItem"><a href="about.html">About</a></li>
-            <li id="menuItem"><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="header">
+  <div class="nav">
+
+<a href="index.html">Home</a>
+      
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+
     
-        <br>
+    </div>
+</div>
         
+        <br>
+          
+        <div id ="info"></div>
          <div id="button">
         <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex number"/> <!-- text input -->
         <input type ="button" value="Search!" id ="loadButton"/> <!-- button -->
@@ -23,6 +31,8 @@
         </div>        
         
         <div id ="info"></div>
+        
+        
         <div id="pokeName"></div>
         <div id="pokeID"></div>
         
@@ -66,7 +76,7 @@
         //Basic variable
         var apiBase = "https://pokeapi.co/api/v2/";	//starts with this and catenates it
         var data; //inspect the data and stores data
-        //var info = document.getElementById("info"); 
+       // var info = document.getElementById("info"); 
         var button = document.getElementById("loadButton");
         var input = document.getElementById("input");
         

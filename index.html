@@ -3,6 +3,8 @@
     <head>
         <title>Pokemon</title>
         <link rel="stylesheet" href="style.css">
+        <!--link script file for future-->
+        <!--<script src="script.js"></script>-->
     </head>
     <body>
         
@@ -12,10 +14,15 @@
             <li id="menuItem"><a href="contact.html">Contact</a></li>
         </ul>
     
-    <div id ="info"></div>
-    
-    <input type ="text" id ="input"/> <!-- text input -->
-    <input type ="button" value="Load it!" id ="loadButton"/> <!-- button -->
+        <br>
+        
+        <input type ="text" id ="input"/> <!-- text input -->
+        <input type ="button" value="Load it!" id ="loadButton"/> <!-- button -->
+        
+        <div id ="info"></div>
+        <div id="pokeName"></div>
+        <div id="pokeID"></div>
+        
         
                 
     <script>
@@ -23,9 +30,13 @@
         //Basic variable
         var apiBase = "https://pokeapi.co/api/v2/";	//starts with this and catenates it
         var data; //inspect the data and stores data
-        var info = document.getElementById("info"); 
+        //var info = document.getElementById("info"); 
         var button = document.getElementById("loadButton");
         var input = document.getElementById("input");
+        
+        
+        //var pokeName=document.getElementById("pokeName");
+        //var pokeID=document.getElementById("pokeID");
         
         //Set up xhr
         var xhr = new XMLHttpRequest(); //creates a new objects and sticks it into this
@@ -52,6 +63,9 @@
             
             //Stick the Pokemon name and ID into info
             info.innerHTML = data.name + " " + data.id; //displays the data
+            
+            //pokeName.innerHTML=data.name;
+            //pokeID.innerHTML=data.id;
             
             console.log("Loaded!");
         }

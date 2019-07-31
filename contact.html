@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <!--Celine Murakami
+  Web Design
+  May 5, 2019
+  Contact Page-->
+
+<div class="header">
+  <div class="nav">
+    <a href="http://127.0.0.1:64067/contact.html" target="_blank">Contact</a>
+  </div>
+</div>
+
+
+
+<footer id="contact" data-parallax="scroll" data-image-src=""> 
+ <div class="row"> 
+    <form action="action_page.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+.nav{
+  display: block;
+  width: 100%;
+  padding:15px;
+  text-align: center;
+}
+
+.nav > a {
+  /* TODO set display and width so each link take 20% */
+  display: inline-block;
+  width: 20%;
+  margin-right:-4px;
+  padding: 4px 0;
+  border: 1px #000;
+  border-width: 0 0 0 1px;
+  
+  
+  /* TODO align vertically at top */
+  vertical-align: top;
+  
+  /* TODO white text color with transparent background color */
+  color: white;
+  background-color: 0;
+  /* TODO sans-serif font with text align in center */
+  font-family: sans-serif;
+  text-align: center;
+  
+  
+  /* TODO remove underline and make all uppercase */
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* TODO remove border of last link using :last-child selector */
+
+
+/* add code for screen less than 1024px */
+@media (max-width: 571px) {
+  .nav > a {
+    /* TODO each link 100% width   */
+    width: 100%;
+    
+    /* TODO only has bottom border  */
+    border-width: 0 0 1px 0; 
+   
+  } 
+  .nav > a:last-child{
+    border-width: 0;
+  }
+}
+
+
+.contact{
+ padding:10px;  
+}
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  background: rgba(255,255,255,0.8);
+  width: 100%; /* Full width */
+  padding: 10px; /* Some padding */  
+  border: 1px solid #ccc; /* Gray border
+  */
+  
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 5px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+   background-color: #4CAF50;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+
+footer{
+  font-family: 'Raleway', sans-serif;
+    color: #fffdf8;
+    text-align: center; 
+        }
+
+ html{
+  background: url('https://blog.sendlane.com/wp-content/uploads/2018/09/sendlane-4-tips-writing-emails-people-actually-want-to-read.png');
+    background-position: center center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover;  
+    
+}
+
+
+
+
+footer img {
+    border: 6px;
+    border-style: solid;
+    border-color: #4f929f;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+
+footer .conclusion {
+    padding: 0px 0px 40px 0px;
+}
+    </style>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pokemon</title>
+        <link rel="stylesheet" href="style.css">
+        <!--link script file for future-->
+        <!--<script src="script.js"></script>-->
+    </head>
+    <body>
+        
+        <ul id="mainMenu">
+            <li id="menuItem"><a href="index.html">Home</a></li>
+            <li id="menuItem"><a href="about.html">About</a></li>
+            <li id="menuItem"><a href="contact.html">Contact</a></li>
+        </ul>
+    
+        <br>
+        
+         <div id="button">
+        <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex number"/> <!-- text input -->
+        <input type ="button" value="Search!" id ="loadButton"/> <!-- button -->
+        
+        </div>        
+        
+        <div id ="info"></div>
+        <div id="pokeName"></div>
+        <div id="pokeID"></div>
+        
+        
+    <style>
+        #button{
+                width: 80%;
+                display: flex;
+/*                max-width: 800px;*/
+                margin: 20px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+        }
+        
+        #input{
+            width: 70%;
+            height: auto;
+            padding: 5px;
+            font-size: 20px;
+
+        }
+
+        
+     #loadButton {
+        background-color: #2b75bb;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 20px;
+        }
+
+        
+        
+        
+</style>
+        
+    <script>
+        
+        //Basic variable
+        var apiBase = "https://pokeapi.co/api/v2/";	//starts with this and catenates it
+        var data; //inspect the data and stores data
+        //var info = document.getElementById("info"); 
+        var button = document.getElementById("loadButton");
+        var input = document.getElementById("input");
+        
+        
+        //var pokeName=document.getElementById("pokeName");
+        //var pokeID=document.getElementById("pokeID");
+        
+        //Set up xhr
+        var xhr = new XMLHttpRequest(); //creates a new objects and sticks it into this
+        
+        //Set the button listener
+        button.addEventListener("click", buttonPressed);         
+        
+        function buttonPressed(){
+        //Tell it what to do when it's loaded
+        xhr.addEventListener("load",loadPokemon);
+        //Tell it the file to load 
+        xhr.open("GET", apiBase + "pokemon-species/" + input.value); //Grabs the pokemon and puts the input into it
+        //GO!
+        xhr.send();
+        }
+            
+        //Parse and display data
+        function loadPokemon(){
+        
+            //Stick the info into data
+            // data = xhr.responseText;
+            //info.innerHTML = data;
+            data = JSON.parse(xhr.responseText);
+            
+            //Stick the Pokemon name and ID into info
+            info.innerHTML = data.name + " " + data.id; //displays the data
+            
+            //pokeName.innerHTML=data.name;
+            //pokeID.innerHTML=data.id;
+            
+            console.log("Loaded!");
+        }
+        
+        </script>
+    
+    </body>
+    
+</html>

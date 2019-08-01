@@ -41,11 +41,6 @@
 /* TODO remove border of last link using :last-child selector */
 
 
-
-
-
-
-
 /* add code for screen less than 341px */
 @media (max-width: 341px) {
   .nav > a {

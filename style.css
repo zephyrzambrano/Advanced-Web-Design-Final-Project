@@ -6,8 +6,14 @@
   box-sizing: border-box;
 }
 
-.header {
+#header {
     padding-bottom: 50px;
+}
+
+
+#header ul{
+    list-style:inline-block;
+    padding-left:0px; 
 }
 
 ul {
@@ -16,44 +22,69 @@ ul {
 }
 
 li {
-    display: inline;
+    display: inline-block;
     position: relative;
-    border:1px solid black;
+    border:1px solid none;
 }
 
 .nav {
-    display: block;
+    display: inline-block;
     width: 100%;
     padding:15px;
     text-align: center;
-    list-style: none;
+    list-style:none inside;
     position: fixed;
+    margin:0;
+    transition: top 0.3s;
+}
+
+
+.nav-content {
+  display: block;
+  position: relative;
+  background-color: white;
+  min-width: 16px;
+  padding: 40px 15px;
+  box-shadow: 5px 5px 5px lightgray;
+  width:250%;
+}
+
+.dropdown-tag{
+    color:white;
+    text-align: center;
+    width:10px;
 }
 
 .nav li {
-    display: inline;
+    display: block;
     position:relative;
-    width: 20%
-    border:1px solid black;
+    width: 30%;
+/*    border:1px solid none;*/
+    float: left;
 }
 
+
+
 .nav li ul {
-    position:absolute;
+    position:relative;
     display: none;
+   
 }
 
 .nav li ul li {
-    display: block;
+    display: inline-block;
 }
 
 .nav li:hover ul {
     display: block;
     position: relative;
+    width:200%;
+
 }
 
 .nav li> a {
   /* TODO set display and width so each link take 20% */
-  display: inline-block;
+  display: lock;
   width: 30%;
   margin-right:-4px;
   padding: 2px 0;
@@ -83,6 +114,24 @@ li {
 
 /* add code for screen less than 341px */
 @media (max-width: 341px) {
+    
+    .nav li:hover ul {
+    display: block;
+    width:auto;
+
+}
+    
+    .nav li {
+    display: inline-block;
+    position:relative;
+    width: 100%;
+    border:1px solid none;
+    float: left;
+}
+
+
+
+    
   .nav > a {
     /* TODO each link 100% width   */
     width: 100%;
@@ -94,6 +143,13 @@ li {
   .nav > a:last-child{
     border-width: 0;
   }
+}
+
+
+.fixed-nav .nav{
+  position: fixed;
+  top:0;
+  z-index: 1;
 }
 
 /*Code above is all for navigation!*/
@@ -132,3 +188,8 @@ body {
     box-shadow: none;
   }
 }
+
+<script>
+
+</script>
+

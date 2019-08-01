@@ -5,6 +5,16 @@
   margin:0;
   box-sizing: border-box;
 }
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+li {
+    display: inline;
+    position: relative;
+}
+
 .nav {
     display: block;
     width: 100%;

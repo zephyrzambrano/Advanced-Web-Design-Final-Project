@@ -163,7 +163,7 @@ body {
 /*height: 100vh;*/
             height: 80vh;
 
-  background: #ffca00 url("http://brezomadrid.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;
+/*  background: #ffca00 url("http://brezomadrid.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;*/
   background-size: cover;
   font-family: 'Consolas', Arial;
 }

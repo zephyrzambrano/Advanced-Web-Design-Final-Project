@@ -5,21 +5,92 @@
   margin:0;
   box-sizing: border-box;
 }
-.nav{
-  display: block;
-  width: 100%;
-  padding:15px;
-  text-align: center;
+
+#header {
+    padding-bottom: 80px;
 }
 
-.nav > a {
+
+#header ul{
+    list-style:inline-block;
+    padding-left:0px; 
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+    border:1px solid none;
+}
+
+.nav {
+    display: inline-block;
+    width: 100%;
+    padding:15px;
+    text-align: center;
+    list-style:none inside;
+    position: absolute;
+    margin:0;
+    transition: top 0.3s;
+}
+
+
+.nav-content {
+  display: block;
+  position: relative;
+  background-color: white;
+  min-width: 16px;
+  padding: 40px 15px;
+  box-shadow: 5px 5px 5px lightgray;
+  width:250%;
+}
+
+.dropdown-tag{
+    color:white;
+    text-align: center;
+    width:10px;
+}
+
+.nav li {
+    display: block;
+    position:relative;
+    width: 30%;
+/*    border:1px solid none;*/
+    float: left;
+}
+
+
+
+.nav li ul {
+    position:relative;
+    display: none;
+   
+}
+
+.nav li ul li {
+    display: inline-block;
+}
+
+.nav li:hover ul {
+    display: block;
+    position: relative;
+    width:158%;
+
+}
+
+.nav li> a {
   /* TODO set display and width so each link take 20% */
-  display: inline-block;
+  display: inline;
   width: 30%;
   margin-right:-4px;
   padding: 2px 0;
   border: 1px #000;
   border-width: 0 0 0 1px;
+    
   
   
   /* TODO align vertically at top */
@@ -43,6 +114,24 @@
 
 /* add code for screen less than 341px */
 @media (max-width: 341px) {
+    
+    .nav li:hover ul {
+    display: block;
+    width:auto;
+
+}
+    
+    .nav li {
+    display: inline-block;
+    position:relative;
+    width: 100%;
+    border:1px solid none;
+    float: left;
+}
+
+
+
+    
   .nav > a {
     /* TODO each link 100% width   */
     width: 100%;
@@ -56,70 +145,14 @@
   }
 }
 
-.nav{
-  display: block;
-  width: 100%;
-  padding:15px;
-  text-align: center;
+
+.fixed-nav .nav{
+  position: fixed;
+  top:0;
+  z-index: 1;
 }
-
-.nav > a {
-  display: inline-block;
-  width: 30%;
-  margin-right:-4px;
-  padding: 2px 0;
-  border: 1px #000;
-  border-width: 0 0 0 1px;
-  
-
-  vertical-align: top;
-  
-  color: white;
-  background-color: 0;
-  font-family: sans-serif;
-  text-align: center;
-  
-  
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-
-
-/* add code for screen less than 341px */
-@media (max-width: 341px) {
-  .nav > a {
-    /* TODO each link 100% width   */
-    width: 100%;
-    
-    /* TODO only has bottom border  */
-    border-width: 0 0 1px 0; 
-   
-  } 
-  .nav > a:last-child{
-    border-width: 0;
-  }
-} 
-    
 
 /*Code above is all for navigation!*/
-
-
-
-/*#mainMenu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 60px;
-    display: inline;
-    background-color: wheat;
-}
-
-#menuItem {
-    display: inline;
-    width: 60px;
-}
-*/
         
 
 
@@ -130,7 +163,7 @@ body {
 /*height: 100vh;*/
             height: 80vh;
 
-  background: #ffca00 url("http://brezomadrid.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;
+/*  background: #ffca00 url("http://brezomadrid.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;*/
   background-size: cover;
   font-family: 'Consolas', Arial;
 }
@@ -155,3 +188,8 @@ body {
     box-shadow: none;
   }
 }
+
+<script>
+
+</script>
+

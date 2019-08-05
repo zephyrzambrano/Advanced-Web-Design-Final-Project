@@ -80,7 +80,7 @@ li {
 .nav li:hover ul {
     display: block;
     position: relative;
-    width:158%;
+    width:230%;
 
 }
 
@@ -118,7 +118,7 @@ li {
 @media (max-width: 341px) {
     
     .nav li:hover ul {
-    display: block;
+    display: inline;
     width:auto;
 
 }
@@ -126,7 +126,7 @@ li {
     .nav li {
     display: inline-block;
     position:relative;
-    width: 100%;
+    width: 170%;
     border:1px solid none;
     float: left;
 }

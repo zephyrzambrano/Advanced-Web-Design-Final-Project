@@ -19,23 +19,25 @@
 ul {
     padding: 0px;
     margin: 0px;
+
 }
 
 li {
     display: inline-block;
     position: relative;
     border:1px solid none;
+    font-size: 20px;
 }
 
 .nav {
     display: inline-block;
-    width: 100%;
+    width: 98%;
     padding:15px;
     text-align: center;
     list-style:none inside;
-    position: absolute;
     margin:0;
     transition: top 0.3s;
+
 }
 
 

@@ -7,7 +7,7 @@
 }
 
 #header {
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 
@@ -33,7 +33,7 @@ li {
     padding:15px;
     text-align: center;
     list-style:none inside;
-    position: fixed;
+    position: absolute;
     margin:0;
     transition: top 0.3s;
 }
@@ -78,13 +78,13 @@ li {
 .nav li:hover ul {
     display: block;
     position: relative;
-    width:200%;
+    width:158%;
 
 }
 
 .nav li> a {
   /* TODO set display and width so each link take 20% */
-  display: lock;
+  display: inline;
   width: 30%;
   margin-right:-4px;
   padding: 2px 0;

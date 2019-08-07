@@ -26,17 +26,22 @@
         <div id="button">
             <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex number"/> <!-- text input -->
             <input type ="button" value="Search!" id ="loadButton"/> <!-- button -->
-        </div>        
+        </div>     
         
-        <div id ="info"></div>
-        
-        
-        <div id="pokeName"></div>
-        <div id="pokeID"></div>
-        <div id="pokeLocation"></div>
+        <canvas id="canvas" width="786" height="577">
+            Update your browser to see the HTML5 Canvas!
+        </canvas>
         
         
     <style>
+        
+        #canvas {
+            margin: auto;
+            display: block;
+            /*width: 100%;
+            height: 50%;*/
+        }
+        
         #button{
                 width: 80%;
                 display: flex;
@@ -108,6 +113,19 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         
     <script>
         
+        //canvas variables
+        var canvas=document.getElementById("canvas");
+        var c=canvas.getContext("2d");
+        
+        //draws pokedex image
+        var img=new Image();
+        img.onload = function() {
+            var ca=document.getElementById('canvas').getContext('2d');
+            ca.drawImage(img, 0, 0);
+        }
+        img.src="pokedex.png";
+        
+        
         //Basic variable
         var apiBase = "https://pokeapi.co/api/v2/";	//starts with this and catenates it
         var data; //inspect the data and stores data
@@ -116,9 +134,11 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         var input = document.getElementById("input");
         
         
-        var pokeName=document.getElementById("pokeName");
-        var pokeID=document.getElementById("pokeID");
-        var pokeLocation=document.getElementById("pokeLocation");
+        var pokeName;
+        var pokeID;
+        var pokeLocation;
+        
+        //var pokeImage=document.getElementById("pokeImage");
         
         //Set up xhr
         var xhr = new XMLHttpRequest(); //creates a new objects and sticks it into this
@@ -143,15 +163,29 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             //info.innerHTML = data;
             data = JSON.parse(xhr.responseText);
             
-            //Stick the Pokemon name and ID into info
-            //info.innerHTML = data.name + " " + data.id; //displays the data
+            //put data into variables
+            pokeName="Name: "+data.name;
+            pokeID="Pokedex Number: "+data.id;
+            pokeLocation="Habitat: "+data.habitat.name;
             
-            pokeName.innerHTML=data.name;
-            pokeID.innerHTML=data.id;
-            pokeLocation.innerHTML=data.habitat.name;
-            //pokeLocation.innerHTML=data;
+            //pokeImage.innerHTML=data.sprites.front_default;
+            //pokeImage.innerHTML=data.sprites.front_default;
+            //back_default;
             
             console.log("Loaded!");
+            
+            //redrawsPokedex image
+            ca=document.getElementById('canvas').getContext('2d');
+            ca.drawImage(img, 0, 0);
+            
+            //write text onto Pokedex
+            c.beginPath();
+            c.fillStyle="white";
+            
+            c.font="20px Consolas";
+            c.fillText(pokeName, 460, 200);
+            c.fillText(pokeID, 460, 230);
+            c.fillText(pokeLocation, 460, 260);
         }
         
         /*function loadPokemonLocation() {

@@ -26,7 +26,9 @@
         <div id="button">
             <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex number"/> <!-- text input -->
             <input type ="button" value="Search!" id ="loadButton"/> <!-- button -->
-        </div>     
+        </div>   
+        
+        
         
         <canvas id="canvas" width="786" height="577">
             Update your browser to see the HTML5 Canvas!
@@ -132,29 +134,59 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         var info = document.getElementById("info"); 
         var button = document.getElementById("loadButton");
         var input = document.getElementById("input");
-        
+        var apiImg = "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json"
         
         var pokeName;
         var pokeID;
         var pokeLocation;
-        
+        var pokeImg;
+
         //var pokeImage=document.getElementById("pokeImage");
         
         //Set up xhr
         var xhr = new XMLHttpRequest(); //creates a new objects and sticks it into this
-        
         //Set the button listener
         button.addEventListener("click", buttonPressed);         
+        
+        
+        
+       // var img = new XMLHttpRequest()
+
+        button2.addEventListener("click", buttonPressedImg);         
+
+        
+        
+        
+        
         
         function buttonPressed(){
         //Tell it what to do when it's loaded
         xhr.addEventListener("load",loadPokemon);
+     //   img.addEventListener("load",loadPokemon);
+
         //Tell it the file to load 
         xhr.open("GET", apiBase + "pokemon-species/" + input.value); //Grabs the pokemon and puts the input into it
         //GO!
+   //     img.open("GET", apiImg); //Grabs the pokemon and puts the input into it
+
         xhr.send();
+      //  img.send();
         }
             
+        
+        
+        function buttonPressedImg(){
+        //Tell it what to do when it's loaded
+        img.addEventListener("load",loadPokemonImg);
+
+        //Tell it the file to load 
+        //GO!
+        img.open("GET", apiImg); //Grabs the pokemon and puts the input into it
+        img.send();
+        }
+            
+        
+        
         //Parse and display data
         function loadPokemon(){
         
@@ -162,12 +194,13 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             // data = xhr.responseText;
             //info.innerHTML = data;
             data = JSON.parse(xhr.responseText);
-            
+            //imgData = JSON.parse(img.responseText);
+
             //put data into variables
             pokeName="Name: "+data.name;
             pokeID="Pokedex Number: "+data.id;
             pokeLocation="Habitat: "+data.habitat.name;
-            
+            //pokeImg=imgData.img;
             //pokeImage.innerHTML=data.sprites.front_default;
             //pokeImage.innerHTML=data.sprites.front_default;
             //back_default;
@@ -186,6 +219,31 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             c.fillText(pokeName, 460, 200);
             c.fillText(pokeID, 460, 230);
             c.fillText(pokeLocation, 460, 260);
+           // c.fillText(pokeImg, 460, 300);
+
+        }
+        
+        function loadPokemonImg(){
+        
+            imgData = JSON.parse(img.responseText);
+
+           
+            pokeImg=imgData.img;
+            
+            console.log("Loaded!");
+            
+            //redrawsPokedex image
+            cimg=document.getElementById('canvas').getContext('2d');
+            cimg.drawImage(img, 0, 0);
+            
+            //write text onto Pokedex
+            cimg.beginPath();
+            cimg.fillStyle="white";
+            
+            c.font="20px Consolas";
+            
+           c.fillText(pokeImg, 200, 200);
+
         }
         
         /*function loadPokemonLocation() {

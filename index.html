@@ -30,18 +30,27 @@
         
         
         
-        <canvas id="canvas" width="786" height="577">
+        <canvas id="desktopCanvas" width="786" height="577">
+            Update your browser to see the HTML5 Canvas!
+        </canvas>
+        
+        <canvas  id="mobileCanvas" width="670" height="1191">
             Update your browser to see the HTML5 Canvas!
         </canvas>
         
         
     <style>
         
-        #canvas {
+        #desktopCanvas {
             margin: auto;
             display: block;
             /*width: 100%;
             height: 50%;*/
+        }
+        
+        #mobileCanvas {
+            margin: auto;
+            display: block;
         }
         
         #button{
@@ -93,6 +102,7 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
       background-image:url("http://www.sclance.com/backgrounds/pokemon-scenery-background/pokemon-scenery-background_1783511.jpg");
       background-size:cover;
       
+      
 /*      background-image:url("http://www.scalsys.com/backgrounds/pokemon-world-background/pokemon-world-background_575388.jpg");*/
 /*      background-size: auto;*/
     
@@ -105,7 +115,17 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
           /*  background-image: url("https://images4.alphacoders.com/661/661967.png"); */
 /*    background-size: auto;*/
   }
+    
+    #desktopCanvas {
+        visibility: hidden;
+    }
 }
+        
+        @media only screen and (min-width: 600px) {
+            #mobileCanvas {
+                visibility: hidden;
+            }
+        }
        
         
         
@@ -115,17 +135,28 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         
     <script>
         
-        //canvas variables
-        var canvas=document.getElementById("canvas");
+        //DESKTOP CANVAS
+        var canvas=document.getElementById("desktopCanvas");
         var c=canvas.getContext("2d");
         
         //draws pokedex image
         var img=new Image();
         img.onload = function() {
-            var ca=document.getElementById('canvas').getContext('2d');
+            var ca=document.getElementById('desktopCanvas').getContext('2d');
             ca.drawImage(img, 0, 0);
         }
         img.src="pokedex.png";
+        
+        //MOBILE CANVAS
+        var canvas2=document.getElementById("mobileCanvas");
+        var c2=canvas.getContext("2d");
+        
+        var img2=new Image();
+        img2.onload = function() {
+            var ca2=document.getElementById('mobileCanvas').getContext('2d');
+            ca2.drawImage(img2, 0, 0);
+        }
+        img2.src="small_pokedex.png";
         
         
         //Basic variable
@@ -207,8 +238,9 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             
             console.log("Loaded!");
             
+            //DESKTOP VERSION
             //redrawsPokedex image
-            ca=document.getElementById('canvas').getContext('2d');
+            ca=document.getElementById('desktopCanvas').getContext('2d');
             ca.drawImage(img, 0, 0);
             
             //write text onto Pokedex
@@ -219,7 +251,21 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             c.fillText(pokeName, 460, 200);
             c.fillText(pokeID, 460, 230);
             c.fillText(pokeLocation, 460, 260);
-           // c.fillText(pokeImg, 460, 300);
+            
+            
+            //MOBILE VERSION
+            //redrawsPokedex image
+            ca2=document.getElementById('mobileCanvas').getContext('2d');
+            ca2.drawImage(img2, 0, 0);
+            
+            //write text onto Pokedex
+            c2.beginPath();
+            c2.fillStyle="white";
+            
+            c2.font="20px Consolas";
+            c2.fillText(pokeName, 460, 200);
+            c2.fillText(pokeID, 460, 230);
+            c2.fillText(pokeLocation, 460, 260);
 
         }
         
@@ -233,7 +279,7 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             console.log("Loaded!");
             
             //redrawsPokedex image
-            cimg=document.getElementById('canvas').getContext('2d');
+            cimg=document.getElementById('desktopCanvas').getContext('2d');
             cimg.drawImage(img, 0, 0);
             
             //write text onto Pokedex

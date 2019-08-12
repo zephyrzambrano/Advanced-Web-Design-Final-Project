@@ -21,25 +21,24 @@
         
         
         <img src="hawlucha_by_jon_on_dribble_modified.png" alt="Logo" id="logo">
-        <p>Logo Source: https://dribbble.com/shots/2913347-Hawlucha</p>
+        
+        <!--Logo Source--> 
+        <p id="logoSource">Logo Source: <a href="https://en.wikipedia.org/wiki/International_Space_Station">Jon on Dribble</a></p>
+        <br>
         
         <h1 id="ourProject_anchor">Our Project</h1>
         <p>
-            Hawlucha Helper is a website that allows users to search for information about different Pokemon. Users can search for Pokemon by name or by their index number in the Pokedex. Our website returns said Pokemon's name, Pokedex number, and habitat. Our website retrieves this data from PokeAPI.
+            Hawlucha Helper is a website that allows users to search for information about different Pokemon. Users can search for Pokemon by name or by their Pokedex number. Our website returns said Pokemon's name, Pokedex number, and habitat. Our website retrieves this data from PokeAPI and displays it on a Pokedex image.
+            <br><br>
+            We used Media Queries to make the website display differently based on the user's screen size. Screen sizes 600 pixels or less are mobile devices, and screens 600 pixels or greater are desktop, laptop, or tablet devices.
         </p>
         <br>
         
         <h1 id="aboutUs_anchor">About Us</h1>
         <p>
-            Celine Murakami
-        </p>
-        <br>
-        <p>
-            Xiwen Shen
-        </p>
-        <br>
-        <p>
-            Zephyr Zambrano
+            Our Team: Celine Murakami, Xiwen Shen, Zephyr Zambrano
+            <br><br>
+            We are a group of students learning how to design and program websites.
         </p>
         
     <style>
@@ -59,11 +58,39 @@
         }
         
         #logo {
-            width: ;
-            height: ;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 5px solid black;
+            width: 100%;
         }
         
+        #logoSource {
+            text-align: center;
+        }
         
+        /*desktop version*/
+        @media only screen and (min-width: 600px) { 
+            #logo {
+                float: left
+                margin-left: auto;
+                margin-right: auto;
+                border: 5px solid black;
+                width: 400px;
+                height: auto;
+            }
+        }
+        
+        /*mobile version*/
+        @media only screen and (max-width: 600px) { 
+            #logo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border: 5px solid black;
+                width: 100%;
+            }
+        }
         
        
         

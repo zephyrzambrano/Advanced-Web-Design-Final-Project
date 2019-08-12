@@ -34,7 +34,7 @@
             Update your browser to see the HTML5 Canvas!
         </canvas>
         
-        <canvas  id="mobileCanvas" width="670" height="1191">
+        <canvas id="mobileCanvas" width="670" height="1191">
             Update your browser to see the HTML5 Canvas!
         </canvas>
         
@@ -95,7 +95,7 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
   font-family: 'Consolas', Arial;
             }
        
-        
+/*mobile version*/
 /* For width 400px and larger: */
 @media only screen and (max-width: 600px) { 
   body {
@@ -119,9 +119,16 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
     #desktopCanvas {
         visibility: hidden;
     }
+    #mobileCanvas {
+        visibility: visible;
+    }
 }
         
+        /*desktop version*/
         @media only screen and (min-width: 600px) {
+            #desktopCanvas {
+                visibility: visible;
+            }
             #mobileCanvas {
                 visibility: hidden;
             }
@@ -156,7 +163,7 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             var ca2=document.getElementById('mobileCanvas').getContext('2d');
             ca2.drawImage(img2, 0, 0);
         }
-        img2.src="small_pokedex.png";
+        img2.src="small_pokedex.jpg";
         
         
         //Basic variable

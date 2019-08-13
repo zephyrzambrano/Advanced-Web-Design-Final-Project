@@ -30,7 +30,7 @@ li {
 }
 
 .nav {
-    display: inline-block;
+    display: inline;
     width: 100%;
     padding:15px;
     text-align: center;
@@ -126,7 +126,7 @@ li {
     .nav li {
     display: inline;
     position:relative;
-    width: 200%;
+    width: 250%;
     border:1px solid none;
     float: left;
 }

@@ -24,7 +24,7 @@
         <br>
         
         <div id="button">
-            <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex number"/> <!-- text input -->
+            <input type ="text" id ="input" placeholder="Search about a pokemon using name or pokedex #"/> <!-- text input -->
             <input type ="button" value="Search!" id ="loadButton"/> <!-- button -->
         </div>   
         
@@ -34,7 +34,7 @@
             Update your browser to see the HTML5 Canvas!
         </canvas>
         
-        <canvas  id="mobileCanvas" width="670" height="1191">
+        <canvas id="mobileCanvas" width="800" height="1191">
             Update your browser to see the HTML5 Canvas!
         </canvas>
         
@@ -51,10 +51,13 @@
         #mobileCanvas {
             margin: auto;
             display: block;
+            width:80%;
+            height:60%;
+            position: absolute;
+            top:250px;bottom:0;right:0;left:65px;
         }
         
         #button{
-                width: 80%;
                 display: flex;
 /*                max-width: 800px;*/
                 margin: 70px auto;
@@ -81,47 +84,60 @@
         font-size: 20px;
         }
 
-       ul{
+       .header .nav{ 
             background-color: rgb(173,216,230, 0.5);
         }
         
 body {
   margin: 0;
-  padding:10px 50px;
+  padding:50px 50px;
   height: 112vh;
 background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/201607/18/c62d3f47edff0f4093d378f017b40e3d.png") center bottom no-repeat;
 /*  background: #ffca00 url("http://brezomadrid.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;*/
   background-size: cover;
   font-family: 'Consolas', Arial;
+    overflow:hidden;
             }
        
-        
+/*mobile version*/
 /* For width 400px and larger: */
 @media only screen and (max-width: 600px) { 
   body {
       background-image:url("http://www.sclance.com/backgrounds/pokemon-scenery-background/pokemon-scenery-background_1783511.jpg");
       background-size:cover;
-      
-      
-/*      background-image:url("http://www.scalsys.com/backgrounds/pokemon-world-background/pokemon-world-background_575388.jpg");*/
-/*      background-size: auto;*/
+      }
     
-          /*         background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2a860bb0-1d61-4ac2-b998-cc9196e003be/d9f83mi-01051827-b100-48e0-98a7-529af72f4bfb.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJhODYwYmIwLTFkNjEtNGFjMi1iOTk4LWNjOTE5NmUwMDNiZVwvZDlmODNtaS0wMTA1MTgyNy1iMTAwLTQ4ZTAtOThhNy01MjlhZjcyZjRiZmIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6vwd2ajlxHCOSTAKp4dxyd8P4eYZ9SfwXx39WTfzgpo");*/
-/*      background-image: url("https://wpmisc.com/sites/default/files/wallpaper/nature/71895/dreaming-paradise-corner-hd-wallpapers-71895-4856951.png");*/
-/*    background-image: url("https://pbs.twimg.com/media/DZT0S87XkAEeG9X.jpg");     */
-/*    background-size:cover;*/
+      #input{
+            width: 200% !IMPORTANT;
+            height: auto;
+            padding: 10px ;
+            font-size: 10px;
+        }
     
-          
-          /*  background-image: url("https://images4.alphacoders.com/661/661967.png"); */
-/*    background-size: auto;*/
-  }
+       #loadButton {
+        background-color: #2b75bb;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 18px;
+        }
+
+    
+    
     
     #desktopCanvas {
         visibility: hidden;
     }
+    #mobileCanvas {
+        visibility: visible;
+    }
 }
         
+        /*desktop version*/
         @media only screen and (min-width: 600px) {
+            #desktopCanvas {
+                visibility: visible;
+            }
             #mobileCanvas {
                 visibility: hidden;
             }
@@ -154,15 +170,12 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         var img2=new Image();
         img2.onload = function() {
             var ca2=document.getElementById('mobileCanvas').getContext('2d');
+            
             ca2.drawImage(img2, 0, 0);
         }
         img2.src="small_pokedex.jpg";
         
-      
-        
-        
-        
-        
+
         
         //apis
         var apiBase = "https://pokeapi.co/api/v2/pokemon-species/";	//starts with this and catenates it

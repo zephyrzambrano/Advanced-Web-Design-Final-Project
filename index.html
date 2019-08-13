@@ -54,7 +54,7 @@
             width:60%;
             height:auto;
             position:absolute;
-           top:260px;bottom:0;right:0;left:65px;
+            top:260px;bottom:0;right:0;left:65px;
         }
         
         #button{
@@ -176,7 +176,7 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         
         //MOBILE CANVAS
         var canvas2=document.getElementById("mobileCanvas");
-        var c2=canvas.getContext("2d");
+        var c2=canvas2.getContext("2d");
         
         var img2=new Image();
         img2.onload = function() {
@@ -269,19 +269,19 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             
             //write text onto Pokedex
             c2.beginPath();
-            c2.fillStyle="white";
+            c2.fillStyle="black";
             
-            c2.font="20px Consolas";
-            c2.fillText(pokeName, 460, 200);
-            c2.fillText(pokeID, 460, 230);
-            c2.fillText(pokeLocation, 460, 260);
+            c2.font="30px Consolas";
+            c2.fillText(pokeName, 200, 1050);
+            c2.fillText(pokeID, 200, 1080);
+            c2.fillText(pokeLocation, 200, 1110);
             
             cimg.beginPath();
             cimg.fillStyle="white";  
             
             pokeImg.onload = function() {
                 c.drawImage( pokeImg, 110, 200,161,100 );
-                c2.drawImage( pokeImg, 110, 200,161,100 );
+                c2.drawImage( pokeImg, 110, 500,400,400 );
             };
             pokeImg.src=imgData.pokemon[data.id-1].img;
             

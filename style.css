@@ -56,6 +56,14 @@ li {
     width:100px;
 }
 
+.header {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+
+
+
 .nav li {
     display: block;
     position:relative;
@@ -74,6 +82,8 @@ li {
 
 .nav li ul li {
     display: inline-block;
+    min-width:200px;
+    
 }
 
 .nav li:hover ul {

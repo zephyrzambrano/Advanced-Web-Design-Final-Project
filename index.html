@@ -51,10 +51,10 @@
         #mobileCanvas {
             margin: auto;
             display: block;
-            width:80%;
-            height:60%;
-            position: absolute;
-            top:250px;bottom:0;right:0;left:65px;
+            width:60%;
+            height:auto;
+          position:absolute;
+           top:260px;bottom:0;right:0;left:65px;*/
         }
         
         #button{
@@ -179,89 +179,69 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
         }
         img2.src="small_pokedex.jpg";
         
+
         
-        
-        //Basic variable
-        var apiBase = "https://pokeapi.co/api/v2/";	//starts with this and catenates it
+        //apis
+        var apiBase = "https://pokeapi.co/api/v2/pokemon-species/";	//starts with this and catenates it
         var data; //inspect the data and stores data
-        var info = document.getElementById("info"); 
-        var button = document.getElementById("loadButton");
-        var input = document.getElementById("input");
+        var imgData;
         var apiImg = "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json"
         
         var pokeName;
         var pokeID;
         var pokeLocation;
-        var pokeImg;
+        var pokeImg = new Image();
+        var input = document.getElementById("input");
 
-        //var pokeImage=document.getElementById("pokeImage");
-        
         //Set up xhr
         var xhr = new XMLHttpRequest(); //creates a new objects and sticks it into this
         //Set the button listener
-        button.addEventListener("click", buttonPressed);         
-        
-        
-        
-       // var img = new XMLHttpRequest()
-
-        button2.addEventListener("click", buttonPressedImg);         
-
-        
-        
-        
+        loadButton.addEventListener("click", buttonPressed);         
         
         
         function buttonPressed(){
-        //Tell it what to do when it's loaded
-        xhr.addEventListener("load",loadPokemon);
-     //   img.addEventListener("load",loadPokemon);
 
-        //Tell it the file to load 
-        xhr.open("GET", apiBase + "pokemon-species/" + input.value); //Grabs the pokemon and puts the input into it
-        //GO!
-   //     img.open("GET", apiImg); //Grabs the pokemon and puts the input into it
-
+        xhr.open("GET", apiBase+ input.value); //Grabs the pokemon and puts the input into it
+        xhr.onload=loadPokemon;
         xhr.send();
-      //  img.send();
         }
-            
-        
-        
-        function buttonPressedImg(){
-        //Tell it what to do when it's loaded
-        img.addEventListener("load",loadPokemonImg);
 
-        //Tell it the file to load 
-        //GO!
-        img.open("GET", apiImg); //Grabs the pokemon and puts the input into it
-        img.send();
-        }
-            
+
         
-        
+
         //Parse and display data
         function loadPokemon(){
-        
-            //Stick the info into data
-            // data = xhr.responseText;
-            //info.innerHTML = data;
             data = JSON.parse(xhr.responseText);
-            //imgData = JSON.parse(img.responseText);
-
             //put data into variables
             pokeName="Name: "+data.name;
             pokeID="Pokedex Number: "+data.id;
             pokeLocation="Habitat: "+data.habitat.name;
-            //pokeImg=imgData.img;
-            //pokeImage.innerHTML=data.sprites.front_default;
-            //pokeImage.innerHTML=data.sprites.front_default;
-            //back_default;
             
-            console.log("Loaded!");
+            //open img
+            xhr.onload=loadPokemonImg;
+
+            xhr.open("GET", apiImg)
+            xhr.send();
+            
+            
             
             //DESKTOP VERSION
             //redrawsPokedex image
+            
+
+        }
+        
+        function loadPokemonImg(){
+        
+            imgData = JSON.parse(xhr.responseText);  
+             
+            cimg=document.getElementById('desktopCanvas').getContext('2d');
+            
+            //redrawsPokedex image
+            cimg.drawImage(img, 0, 0); 
+            
+            //write text onto Pokedex
+            
             ca=document.getElementById('desktopCanvas').getContext('2d');
             ca.drawImage(img, 0, 0);
             
@@ -288,36 +268,24 @@ background: url("https://www.themebeta.com/media/cache/728/files/chrome/images/2
             c2.fillText(pokeName, 460, 200);
             c2.fillText(pokeID, 460, 230);
             c2.fillText(pokeLocation, 460, 260);
-
-        }
-        
-        function loadPokemonImg(){
-        
-            imgData = JSON.parse(img.responseText);
-
-           
-            pokeImg=imgData.img;
             
-            console.log("Loaded!");
-            
-            //redrawsPokedex image
-            cimg=document.getElementById('desktopCanvas').getContext('2d');
-            cimg.drawImage(img, 0, 0);
-            
-            //write text onto Pokedex
             cimg.beginPath();
-            cimg.fillStyle="white";
+            cimg.fillStyle="white";  
             
-            c.font="20px Consolas";
+            pokeImg.onload = function() {
+                c.drawImage( pokeImg, 110, 200,161,100 );
+                c2.drawImage( pokeImg, 110, 200,161,100 );
+            };
+            pokeImg.src=imgData.pokemon[data.id-1].img;
             
-           c.fillText(pokeImg, 200, 200);
+            
 
         }
         
-        /*function loadPokemonLocation() {
-            xhr.open("GET, apiBase"+"pokemon-species/"+input.value+   );
-            xhr.send();
-        }*/
+       
+        
+        
+        
         
         </script>
     

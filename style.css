@@ -108,14 +108,16 @@ font-size: 10px;
 }
 
 
-body {
+/*body {
   margin: 0;
   padding:10px 50px;
-/*height: 100vh;*/
+/*height: 100vh;
     height: 80vh;
   background-size: cover;
   font-family: 'Consolas', Arial;
 }
+*/
+
 .content {
   display: flex;
   align-items: center;

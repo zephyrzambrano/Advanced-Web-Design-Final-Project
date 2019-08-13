@@ -16,12 +16,13 @@
 <!--    </div>-->
 <!--</div>-->
     
-     <div id="header">
+             
+        <div class="header">
             <ul class="nav">
                 <li><a href="index.html">Home</a></li>
-                 <li  class ="dropdown-tag"><a href="about.html">About</a>
-                   <ul class="dropdown-content">
-                     <li><a href="about.html#ourProject_anchor">Our Project</a></li>
+                <li><a href="about.html">About</a>
+                    <ul>
+                        <li><a href="about.html#ourProject_anchor">Our Project</a></li>
                         <li><a href="about.html#aboutUs_anchor">About Us</a></li>
                     </ul>
                 </li>
@@ -305,69 +306,7 @@
     <style>
     @import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
 
-*{
-  padding:0;
-  margin:0;
-  box-sizing: border-box;
-}
-/*.nav{
-  display: block;
-  width: 100%;
-  padding:15px;
-  text-align: center;
-}
-        */
 
-  /* TODO set display and width so each link take 20% */
-  /*.nav > a {
-  display: inline-block;
-  width: 20%;
-  margin-right:-4px;
-  padding: 4px 0;
-  border: 1px #000;
-  border-width: 0 0 0 1px;
-  */
-  
-  /* TODO align vertically at top */
-/*  vertical-align: top;*/
-  
-  /* TODO white text color with transparent background color */
-/*  color: white;*/
-/*  background-color: 0;*/
-  /* TODO sans-serif font with text align in center */
-/*  font-family: sans-serif;*/
-/*  text-align: center;*/
-  
-  
-  /* TODO remove underline and make all uppercase */
-/*  text-decoration: none;*/
-/*  text-transform: uppercase;*/
-/*}*/
-
-/* TODO remove border of last link using :last-child selector */
-
-
-/* add code for screen less than 1024px */
-/*@media (max-width: 571px) {*/
-/*  .nav > a {*/
-    /* TODO each link 100% width   */
-/*    width: 100%;*/
-    
-    /* TODO only has bottom border  */
-/*    border-width: 0 0 1px 0; 
-   
- } 
-  .nav > a:last-child{
-    border-width: 0;
-  }
-}
-        
-
-
-.contact{
- padding:10px;  
-}
-        */
         
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -430,8 +369,10 @@ footer .conclusion {
     padding: 0px 0px 40px 0px;
 }
     
-        
-        
+.nav{
+     padding-left: 150px;
+    text-align: center;
+} 
         
          </style>
     </body>

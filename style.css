@@ -6,70 +6,44 @@
   box-sizing: border-box;
 }
 
-#header {
-    padding-bottom: 80px;
-}
 
 
-#header ul{
-    list-style:inline-block;
-    padding-left:0px; 
-}
-
-ul {
-    padding: 0px;
-    margin: 0px;
-
-}
 
 li {
     display: inline-block;
     position: relative;
     border:1px solid none;
     font-size: 20px;
+    
 }
 
 .nav {
-    display: inline;
     width: 100%;
-    padding:15px;
     text-align: center;
     list-style:none inside;
     margin:0;
     transition: top 0.3s;
-
+    position:relative;
+     display: inline-block;
+     padding-left: 10%;
 }
 
-
-.nav-content {
-  display: block;
-  position: relative;
-  background-color: white;
-  min-width: 16px;
-  padding: 40px 15px;
-  box-shadow: 5px 5px 5px lightgray;
-}
-
-.dropdown-tag{
-    color:white;
-    text-align: center;
-    width:100px;
-}
 
 .header {
     padding-top:10px;
     padding-bottom:10px;
+   
 }
 
 
 
 
 .nav li {
-    display: block;
+    display: inline-block;
     position:relative;
+    text-align: left;
+    vertical-align:top;
     width: 30%;
-/*    border:1px solid none;*/
-    float: left;
 }
 
 
@@ -80,95 +54,58 @@ li {
    
 }
 
+
 .nav li ul li {
-    display: inline-block;
-    min-width:200px;
+    display: block;
+  
     
 }
 
 .nav li:hover ul {
-    display: inline-block;
+    display: block;
     position: relative;
-    width:300%;
-    text-align:left;
+    text-align: center;
 
 }
 
 .nav li> a {
-  /* TODO set display and width so each link take 20% */
-  display: inline;
-  width: 30%;
-  margin-right:-4px;
-  padding: 2px 0;
-  border: 1px #000;
-  border-width: 0 0 0 1px;
-    
-  
-  
-  /* TODO align vertically at top */
+ 
   vertical-align: top;
-  
-  /* TODO white text color with transparent background color */
   color: white;
-  background-color: 0;
-  /* TODO sans-serif font with text align in center */
   font-family: sans-serif;
   text-align: center;
-  
-  
-  /* TODO remove underline and make all uppercase */
   text-decoration: none;
   text-transform: uppercase;
+font-size: 20px;
 }
 
-/* TODO remove border of last link using :last-child selector */
-
-
-/* add code for screen less than 341px */
-@media (max-width: 341px) {
-    
-    .nav li:hover ul {
-   display: inline-block;
-    position: relative;
-    width:auto;
-}
-    
-    .nav li {
-    display: inline;
-    position:relative;
-    width: 250%;
-    border:1px solid none;
-    float: left;
-}
-
-    
-    
-
-
-    
-  .nav > a {
-    /* TODO each link 100% width   */
-    width: 100%;
-    
-    /* TODO only has bottom border  */
-    border-width: 0 0 1px 0; 
-   
-  } 
-  .nav > a:last-child{
-    border-width: 0;
-  }
+.nav li li> a {
+ 
+  vertical-align: top;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+font-size: 15px;
+    text-align: center;
 }
 
 
-.fixed-nav .nav{
-  position: fixed;
-  top:0;
-  z-index: 1;
+@media only screen and (max-width: 600px) { 
+    .nav li> a {
+        font-size: 10px;
+
+    }
+    
+    .nav li li> a {
+ 
+ 
+font-size: 10px;
+    text-align: center;
 }
-
-/*Code above is all for navigation!*/
-        
-
+    
+}
 
 
 body {
@@ -201,7 +138,6 @@ body {
   }
 }
 
-<script>
 
-</script>
 
+*/
